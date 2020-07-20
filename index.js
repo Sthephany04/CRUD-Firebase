@@ -86,6 +86,7 @@ window.addEventListener('DOMContentLoaded', async (evento) => {
       description: description.value
     })
     editStatus = false;
+    id = '';
     eventForm['btn-event-form'].innerHTML = 'Save';
   }
   
