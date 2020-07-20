@@ -19,8 +19,15 @@ window.addEventListener('DOMContentLoaded', async (evento) => {
   const querySnapshot = await getEvents(); //QuerySnapshot contiene los resultados de una consulta, segun documentacion. Un objeto que se puede recorrer.
   querySnapshot.forEach(doc => {
     console.log(doc.data());
+    const event = doc.data();
     eventsContainer.innerHTML += `<div class= "card card-body mt-2 border-primary">
-      <h3>${doc.data().sport}</h3>
+      <h3 class="h5">${event.sport}</h3>
+      <p>${event.direction}</p>
+      <p>${event.description}</p>
+      <div>
+        <button class="btn btn-primary">Eliminar</button>
+        <button class="btn btn-secondary">Editar</button>      
+      </div>
     </div>`
   })
 })
