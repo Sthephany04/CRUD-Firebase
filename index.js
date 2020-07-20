@@ -4,6 +4,7 @@ const eventForm = document.getElementById('event-form');
 const eventsContainer = document.getElementById('events-container');
 
 let editStatus = false;
+let id = '';
 
 //Funcion para guardar el evento
 const saveEvent = (sport, direction, description) => {
@@ -22,6 +23,8 @@ const getEvent = (id) => db.collection('events').doc(id).get();
 const onGetEvents = (callback) => db.collection('events').onSnapshot(callback);
 
 const deleteEvent = id => db.collection('events').doc(id).delete();
+
+const updateEvent = (id, updatedEvent) => db.collection('events').doc(id).update(updatedEvent);
 
 window.addEventListener('DOMContentLoaded', async (evento) => {
   onGetEvents((querySnapshot) => {  //QuerySnapshot contiene los resultados de una consulta, segun documentacion. Un objeto que se puede recorrer.
@@ -54,9 +57,12 @@ window.addEventListener('DOMContentLoaded', async (evento) => {
         btn.addEventListener('click', async (evento) => {
           const doc = await getEvent(evento.target.dataset.id);
           const event = doc.data();
-           eventForm['event-sport'].value = event.sport;
-           eventForm['event-direction'].value = event.direction;
-           eventForm['event-description'].value = event.description;
+          editStatus = true;
+          id = doc.id;
+          eventForm['event-sport'].value = event.sport;
+          eventForm['event-direction'].value = event.direction;
+          eventForm['event-description'].value = event.description;
+          eventForm['btn-event-form'].innerHTML = 'Update';
         })
       })
 
@@ -71,7 +77,17 @@ window.addEventListener('DOMContentLoaded', async (evento) => {
   const direction = eventForm['event-direction'];
   const description = eventForm['event-description'];
 
-  await saveEvent(sport.value, direction.value, description.value);
+  if (!editStatus) {
+    await saveEvent(sport.value, direction.value, description.value);
+  } else {
+    await updateEvent(id, {
+      sport: sport.value,
+      direction: direction.value,
+      description: description.value
+    })
+    editStatus = false;
+    eventForm['btn-event-form'].innerHTML = 'Save';
+  }
   
   await getEvents();
   
