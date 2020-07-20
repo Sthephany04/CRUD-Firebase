@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase CRUD</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css">
+</head>
+<body>
+  
+  <form id="task-form">
+    <div class="form-group">
+      <input type="text" id="task-sport" class="form-control" placeholder="Deporte">
+    </div>
+    <div class="form-group">
+      <input type="text" id="task-direction" class="form-control" placeholder="Direccion del Evento">
+    </div>
+    <div class="form-group">
+      <textarea id="description" rows="3" class="form-control" placeholder="Descripcion del Evento"></textarea>
+    </div>
+  </form>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCTrUAQIjxvDgYJk7RbSZGt350cI-Z7JHI",
+    authDomain: "blogsg-635a0.firebaseapp.com",
+    databaseURL: "https://blogsg-635a0.firebaseio.com",
+    projectId: "blogsg-635a0",
+    storageBucket: "blogsg-635a0.appspot.com",
+    messagingSenderId: "545261095404",
+    appId: "1:545261095404:web:e3d087da2bf5aa297558c9",
+    measurementId: "G-X131NQK27K"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+  <script src="index.js"></script>  
+</body>
+</html>
