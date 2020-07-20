@@ -1,0 +1,15 @@
+{
+  "name": "crud-firebase",
+  "version": "1.0.0",
+  "description": "Uso de Firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Firebase",
+    "JavaScript"
+  ],
+  "author": "Sthephany Granados",
+  "license": "MIT"
+}

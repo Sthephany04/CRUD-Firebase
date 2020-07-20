@@ -7,26 +7,40 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css">
 </head>
 <body>
+
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <form id="event-form">
+              <div class="form-group">
+                <input type="text" id="event-sport" class="form-control" placeholder="Deporte" autofocus>
+              </div>
+              <div class="form-group">
+                <input type="text" id="event-direction" class="form-control" placeholder="Direccion del Evento">
+              </div>
+              <div class="form-group">
+                <textarea id="event-description" rows="3" class="form-control" placeholder="Descripcion del Evento"></textarea>
+              </div>
+              <button class="btn btn-primary" id="btn-event-form">
+                Publicar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
-  <form id="task-form">
-    <div class="form-group">
-      <input type="text" id="task-sport" class="form-control" placeholder="Deporte">
-    </div>
-    <div class="form-group">
-      <input type="text" id="task-direction" class="form-control" placeholder="Direccion del Evento">
-    </div>
-    <div class="form-group">
-      <textarea id="description" rows="3" class="form-control" placeholder="Descripcion del Evento"></textarea>
-    </div>
-  </form>
 
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -42,7 +56,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  
 </script>
   <script src="index.js"></script>  
 </body>
